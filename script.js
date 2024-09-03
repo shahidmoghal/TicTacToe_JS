@@ -5,14 +5,14 @@ const playerTurnDisplay = document.querySelector(".player-turn");
 let isPlayerXTurn = true;
 
 const winningCombinations = [
-  [0, 1, 2], // Top Row
-  [3, 4, 5], // Middle Row
-  [6, 7, 8], // Bottom Row
-  [0, 3, 6], // Left Column
-  [1, 4, 7], // Middle Column
-  [2, 5, 8], // Right Column
-  [0, 4, 8], // Main Diagonal
-  [2, 4, 6], // Anti-Diagonal
+  [0, 1, 2], 
+  [3, 4, 5], 
+  [6, 7, 8], 
+  [0, 3, 6], 
+  [1, 4, 7], 
+  [2, 5, 8], 
+  [0, 4, 8], 
+  [2, 4, 6], 
 ];
 
 gridCells.forEach((cell) => {
@@ -31,7 +31,7 @@ gridCells.forEach((cell) => {
 });
 
 resetButton.addEventListener("click", () => {
-    resetButton.innerHTML= 'Reset';
+  resetButton.innerHTML = "Reset";
   gridCells.forEach((cell) => {
     cell.innerHTML = "";
     cell.disabled = false;
@@ -51,6 +51,7 @@ const checkForWinner = () => {
 
     if (cellA !== "" && cellA === cellB && cellB === cellC) {
       playerTurnDisplay.innerHTML = `Winner is ${cellA}`;
+      resetButton.innerHTML = "Play Again";
       gridCells.forEach((cell) => {
         cell.disabled = true;
       });
@@ -65,7 +66,7 @@ const checkForWinner = () => {
   });
 
   if (isTie) {
-    playerTurnDisplay.innerHTML = "It's a Tie!"
-    resetButton.innerHTML= 'Play Again';
+    playerTurnDisplay.innerHTML = "It's a Tie!";
+    resetButton.innerHTML = "Play Again";
   }
 };
